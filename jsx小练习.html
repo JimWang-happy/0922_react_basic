@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx-vdom</title>
+</head>
+<body>
+    <div id="test"></div>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom 用于react操作dom -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 加载 Babel -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+ 
+    <script type="text/babel">
+        const data = ['Angular', 'React', 'Vue'];
+        const data1 = [<li>Angular</li>, <li>React</li>, <li>Vue</li>];
+        // 1.创建虚拟DOM jsx就是一个臭皮怪，终极创建虚拟dom
+        const VDOM = (
+            <div>
+                <h1>前端js框架列表</h1>
+                <ul>
+                    {
+                        data.map((item, index) => {
+                            return <li key={index}>{item}</li>
+                        })
+                    }
+                </ul>
+            </div>
+        );
+        // 2.渲染虚拟DOM到页面
+        ReactDOM.render(VDOM, document.getElementById('test'));
+    </script>
+
+</body>
+</html>

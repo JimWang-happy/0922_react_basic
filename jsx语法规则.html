@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx语法</title>
+    <style>
+        .title {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom 用于react操作dom -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 加载 Babel -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+ 
+    <script type="text/babel">
+        const myId = 'AtGuigu';
+        const myData = 'Hello, rEacT';
+        // 1.创建虚拟DOM jsx就是一个臭屁乖，终极创建虚拟dom
+        const VDOM = (
+            <div>
+                <h1 className="title" id={myId.toLowerCase()}>
+                     <span style={{color: 'blue', fontSize: '50px'}}>{myData.toLowerCase()}</span>
+                </h1>
+                <input type="text"/>
+                <good>123</good>
+            </div>
+        );
+        // 2.渲染虚拟DOM到页面
+        ReactDOM.render(VDOM, document.getElementById('test'));
+        /**
+         * 定义虚拟dom不要写引号
+         * 标签中混入js表达式时要用{}
+         * 样式的类名指定不要用class，要用className
+         * 内联样式，要用style={{key: 'value'}}的形式
+         * 只能有一个跟标签
+         * 标签必须闭合
+         * 
+         **/
+    </script>
+
+</body>
+</html>
